@@ -1,10 +1,10 @@
-# Create a class named 'Member' having the following members:Data members are 1-Name 2-Age 3-Phone number 4-Address 5-Salary. 
+# Create a class named 'Employee' having the following members:Data members are 1-Name 2-Age 3-Phone number 4-Address 5-Salary. 
 # It also has a method named 'printSalary' which prints the salary of the members. Two classes 'Employee' and 'Manager' inherits the 'Member' class.
-# The 'Employee' and 'Manager' classes have data members 'specialization' and 'department' respectively.
+# The 'Officer' and 'Manager' classes have data members 'specialization' and 'department' respectively.
 # Now, assign name, age, phone number, address and salary to an employee and a manager by making an object of both of these classes and print the value you assigned. 
 
 import java.util.Scanner;
-class Member
+class Employee
  {
     private String name;
     private int age;
@@ -12,7 +12,7 @@ class Member
     private String address;
     private double salary;
 
-    public Member(String name, int age, String phoneNumber, String address, double salary) 
+    public Employee(String name, int age, String phoneNumber, String address, double salary) 
     {
         this.name = name;
         this.age = age;
@@ -34,25 +34,24 @@ class Member
     	System.out.println("Salary " + salary);
    }
 }   
-class Employee extends Member 
+class Officer extends Employee 
 {
     private String specialization;
     private String department;	
-    public Employee(String name, int age, String phoneNumber,String address, double salary, String specialization, String department) 
+    public Officer(String name, int age, String phoneNumber,String address, double salary, String specialization, String department) 
         {
         super(name, age, phoneNumber, address, salary);
         this.department=department;
         this.specialization = specialization;
         }
-    public void displayEmployee()
+    public void displayOfficer()
     	{  
     	displayMember();
     	System.out.println("Specialization " + specialization);
     	System.out.println("Department " + department);
     	}
-    	  
 }
-class Manager extends Member
+class Manager extends Employee
 {
     private String specialization;
     private String department;
@@ -74,7 +73,7 @@ public class Company
     public static void main(String[] args)
      {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Employee Details");
+        System.out.println("Enter Officer Details");
         System.out.print("Name: ");
         String name1=sc.nextLine();
         System.out.print("Age: ");
@@ -91,9 +90,8 @@ public class Company
     	  String specialization1=sc.nextLine();
         System.out.print("Department:");
     	  String department1=sc.nextLine();
-        Employee employee = new Employee(name1,age1,phoneNumber1,address1,salary1,specialization1,department1);
-        employee.displayEmployee();
-
+        Officer officer = new Officer(name1,age1,phoneNumber1,address1,salary1,specialization1,department1);
+        officer.displayOfficer();
         System.out.println("Enter Manager Details");
         System.out.print("Name: ");
         String name2=sc.nextLine();
